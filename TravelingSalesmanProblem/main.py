@@ -1,106 +1,28 @@
-import networkx as nx
-import matplotlib.pyplot as plt
+from SalesmanProblem.TravelingSalesmanProblem.helda_karpa import held_karp
+from SalesmanProblem.TravelingSalesmanProblem.naiwna import travelling_salesman_problem
+
+if __name__ == "__main__":
+    starting_point = 0
+    example_data = [
+        [0, 7, 4, 8, 3, 2, 9, 5, 6, 1],
+        [7, 0, 6, 9, 5, 3, 8, 4, 2, 7],
+        [4, 6, 0, 3, 7, 9, 2, 8, 5, 4],
+        [8, 9, 3, 0, 4, 6, 5, 7, 9, 8],
+        [3, 5, 7, 4, 0, 1, 3, 6, 8, 2],
+        [2, 3, 9, 6, 1, 0, 5, 4, 7, 3],
+        [9, 8, 2, 5, 3, 5, 0, 3, 4, 9],
+        [5, 4, 8, 7, 6, 4, 3, 0, 1, 6],
+        [6, 2, 5, 9, 8, 7, 4, 1, 0, 5],
+        [1, 7, 4, 8, 2, 3, 9, 6, 5, 0]]
+
+    print("rozwiązanie naiwne:")
+    print(travelling_salesman_problem(example_data, starting_point))
+
+    print("Helda-Karpa:")
+    print(held_karp(example_data, starting_point))
+
+    print("najbliższego sąsiada:")
+
+    print("najmniejszej krawędzi:")
 
 
-class Graph:
-    def __init__(self):
-        self.graph = {}
-
-    def add_edge(self, first_cord, connection_cord):
-        if first_cord not in self.graph:
-            self.graph[first_cord] = []
-        self.graph[first_cord].append(connection_cord)
-
-    def dfs(self, first_cord):
-        visited = set()
-        self.dfs_util(first_cord, visited)
-
-    def dfs_util(self, first_cord, visited):
-        visited.add(first_cord)
-        print(first_cord, end=' ')
-
-        if first_cord in self.graph:
-            for neighbor in self.graph[first_cord]:
-                if neighbor not in visited:
-                    self.dfs_util(neighbor, visited)
-
-    def transpose(self):
-        transposed_graph = Graph()
-        for connection_cord in self.graph:
-            for first_cord in self.graph[connection_cord]:
-                transposed_graph.add_edge(first_cord, connection_cord)
-        return transposed_graph
-
-    def kosaraju(self):
-        stack = []
-        visited = set()
-        scc_list = []
-
-        for first_cord in self.graph:
-            if first_cord not in visited:
-                self.kosaraju_util(first_cord, visited, stack)
-                stack.append(None)  # Mark the end of a component
-
-        transposed_graph = self.transpose()
-        visited = set()
-
-        while stack:
-            first_cord = stack.pop()
-            if first_cord is not None and first_cord not in visited:
-                scc = []
-                transposed_graph.kosaraju_util(first_cord, visited, scc)
-                scc_list.append(scc)
-
-        return scc_list
-
-    def kosaraju_util(self, first_cord, visited, scc):
-        visited.add(first_cord)
-        scc.append(first_cord)
-
-        if first_cord in self.graph:
-            for neighbor in self.graph[first_cord]:
-                if neighbor not in visited:
-                    self.kosaraju_util(neighbor, visited, scc)
-
-    def is_connected(self):
-        visited = set()
-        self.dfs_util(next(iter(self.graph)), visited)
-
-        return len(visited) == len(self.graph)
-
-    def display_graph(self):
-        g = nx.DiGraph()
-        for connection_cord in self.graph:
-            for first_cord in self.graph[connection_cord]:
-                g.add_edge(connection_cord, first_cord)
-
-        pos = nx.spring_layout(g)
-        nx.draw(g, pos, with_labels=True)
-        plt.show()
-
-
-if __name__ == '__main__':
-    g = Graph()
-    g.add_edge(1, 2)
-    g.add_edge(2, 3)
-    g.add_edge(3, 1)
-    g.add_edge(2, 4)
-    g.add_edge(4, 5)
-    g.add_edge(5, 6)
-    g.add_edge(6, 4)
-    g.add_edge(9, 5)
-    g.add_edge(1, 5)
-    print("DFS:")
-    g.dfs(1)
-    print("\n")
-
-    print("Silnie spójne składowe:")
-    scc = g.kosaraju()
-    for component in scc:
-        print(component)
-    print("\n")
-
-    print("Graf spojny:", g.is_connected())
-    print("\n")
-
-    g.display_graph()
