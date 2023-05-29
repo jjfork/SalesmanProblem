@@ -3,6 +3,13 @@ import itertools
 
 
 def get_vertex_to_visit(graph: list, start_vertex: int) -> list:
+    """
+    Generate list of vertices to visit, excluding start vertex
+    :param:
+        graph: -> list, input graph as a list
+        start_vertex: -> int, starting vertex
+    :return: -> list, vertices to visit
+    """
     vertex_to_visit = []
     for vertex_index in range(len(graph)):
         if vertex_index != start_vertex:
@@ -11,6 +18,13 @@ def get_vertex_to_visit(graph: list, start_vertex: int) -> list:
 
 
 def travelling_salesman_problem(graph: list, start_vertex: int) -> int:
+    """
+    Brute force approach to solve Traveling Salesman Problem (TSP)
+    :param:
+        graph: -> list, input graph as a list
+        start_vertex: -> int, starting vertex
+    :return: -> int, minimum path weight of tour
+    """
     vertex_to_visit = get_vertex_to_visit(graph, start_vertex)
 
     min_path = sys.maxsize

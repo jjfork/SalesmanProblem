@@ -5,9 +5,10 @@ def table_generator(number_of_cities, min_d, max_d):
     """
     Generates a table for Traveling Salesman Problem algorithm
 
-    :param number_of_cities: -> int, number of cities
-    :param min_d: minimum distance between cities
-    :param max_d: maximum distance between cities
+    :param:
+        number_of_cities: -> int, number of cities
+        min_d: minimum distance between cities
+        max_d: maximum distance between cities
     :return: table as a list of list
 
     - Distances between cities are random
