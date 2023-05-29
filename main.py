@@ -4,7 +4,7 @@ from SalesmanProblem.TravelingSalesmanProblem.naiwna import travelling_salesman_
 
 if __name__ == "__main__":
     starting_point = 0
-    example_data = table_generator(10, 1, 9)
+    example_data = table_generator(number_of_cities=10, min_d=1, max_d=10)
 
     print("rozwiązanie naiwne:")
     print(travelling_salesman_problem(example_data, starting_point))

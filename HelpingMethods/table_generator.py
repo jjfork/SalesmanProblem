@@ -24,5 +24,4 @@ def table_generator(number_of_cities, min_d, max_d):
             else:
                 value.append(table[j][i])
         table.append(value)
-    print(table)
     return table
