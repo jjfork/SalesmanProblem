@@ -1,6 +1,4 @@
 import itertools
-import random
-import sys
 
 
 def held_karp(graph: list) -> int:
@@ -78,7 +76,7 @@ def get_min_path(graph, vertex_count, vertex_set):
         vertex_count: -> int, number of vertices in graph
         vertex_set: -> dict, vertex set containing distance info
 
-    :return: -> tuple, bit representation of visited cities and list of tuples with min distances and vertex index
+    :return: -> tuple, a bit representation of visited cities and list of tuples with min distances and vertex index
     """
     bits = (2**vertex_count - 1) - 1
     res = []
