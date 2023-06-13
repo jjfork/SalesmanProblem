@@ -4,7 +4,7 @@ import itertools
 def held_karp(graph: list) -> int:
     """
     Traveling Salesman Problem using Held-Karp algorithm
-    :param
+    :param:
         graph: -> list, input graph as a list
 
     :return: -> int, minimum distance of optimal tour
@@ -40,7 +40,7 @@ def held_karp(graph: list) -> int:
 def sum_bits_for_all_index(subset):
     """
     Calculate sum of bits for all indices in given subset
-    :param
+    :param:
         subset:  subset of indices
     :return: -> int, sum of bits
     """

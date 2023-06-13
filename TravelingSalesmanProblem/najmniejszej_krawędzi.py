@@ -1,4 +1,4 @@
-def krawedzi(graph: list):
+def min_span_tree(graph: list):
     table = generate_table_asc_paths(graph)
     access = access_to_node(len(graph))
     path = 0
@@ -11,9 +11,9 @@ def krawedzi(graph: list):
         right_node_edges = access[record[1]][1]
 
         distance = record[2]
-        algotihm_condition = left_node.isdisjoint(right_node) and left_node_edges < 2 and right_node_edges < 2
+        algorithm_condition = left_node.isdisjoint(right_node) and left_node_edges < 2 and right_node_edges < 2
 
-        if algotihm_condition or node_added == len(graph) - 1:
+        if algorithm_condition or node_added == len(graph) - 1:
             path += distance
             node_added += 1
             access[record[0]][1] += 1
