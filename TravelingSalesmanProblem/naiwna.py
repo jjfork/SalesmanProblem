@@ -17,7 +17,7 @@ def get_vertex_to_visit(graph: list, start_vertex: int) -> list:
     return vertex_to_visit
 
 
-def travelling_salesman_problem(graph: list, start_vertex: int) -> int:
+def TSP_bruteForce(graph: list, start_vertex: int) -> int:
     """
     Brute force approach to solve Traveling Salesman Problem (TSP)
     :param:
