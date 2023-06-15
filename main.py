@@ -14,8 +14,10 @@ import time
 
 if __name__ == "__main__":
     starting_point = 0
-    monte_carlo = 2
-    cities_size = [5, 10, 12]
+    monte_carlo = 10
+    cities_size = [10, 15, 20]
+    cities_size_naiwe = [5, 10, 15]
+
 
     # creating lists to which the results will be saved
     result_naive = []
@@ -99,7 +101,7 @@ if __name__ == "__main__":
     plt.plot(cities_size, averages, color='#FF0000')
 
     for results in result_naive:
-        plt.plot(cities_size, results, color='#E39DE3')
+        plt.plot(cities_size_naiwe, results, color='#E39DE3')
 
     # plotting average to be on top of other graphs
     plt.plot(cities_size, averages, color='#FF0000')
