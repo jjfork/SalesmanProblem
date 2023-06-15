@@ -15,8 +15,7 @@ import time
 if __name__ == "__main__":
     starting_point = 0
     monte_carlo = 10
-    cities_size = [10, 15, 20]
-    cities_size_naiwe = [5, 10, 15]
+    cities_size = [5, 10, 15, 20]
 
 
     # creating lists to which the results will be saved
@@ -89,85 +88,89 @@ if __name__ == "__main__":
 
     # printing all results
     print(result_naive)
+    print("results naive^^^^")
     print(result_held_karp)
+    print("results held_kard^^^^")
     print(result_closest_neigh)
+    print("results closest_neigh^^^^")
     print(result_min_span_tree)
+    print("results min_span_tree^^^^")
 
     # creating graphs for each algorithm - Naive
-    plt.subplot(2, 2, 1)
-
-    # counting average of results and plotting - only for display of legend
-    averages = [sum(column) / len(column) for column in zip(*result_naive)]
-    plt.plot(cities_size, averages, color='#FF0000')
-
-    for results in result_naive:
-        plt.plot(cities_size_naiwe, results, color='#E39DE3')
-
-    # plotting average to be on top of other graphs
-    plt.plot(cities_size, averages, color='#FF0000')
-
-    # editing plot
-    plt.title('Naive Solution')
-    plt.xlabel('Number of cities')
-    plt.ylabel('Time (s)')
-    plt.legend(['Average of results', 'Monte Carlo results'], loc='upper left')
-
-    # creating graphs for each algorithm - Held-Karp
-    plt.subplot(2, 2, 2)
-
-    # counting average of results and plotting - only for display of legend
-    averages = [sum(column) / len(column) for column in zip(*result_held_karp)]
-    plt.plot(cities_size, averages, color='#FF0000')
-
-    for results in result_held_karp:
-        plt.plot(cities_size, results, color='#E39DE3')
-
-    # plotting average to be on top of other graphs
-    plt.plot(cities_size, averages, color='#FF0000')
-
-    # editing plot
-    plt.title('Held-Karp Algorithm')
-    plt.xlabel('Number of cities')
-    plt.ylabel('Time (s)')
-    plt.legend(['Average of results', 'Monte Carlo results'], loc='upper left')
-
-    # creating graphs for each algorithm - Closest Neighbour
-    plt.subplot(2, 2, 3)
-
-    # counting average of results and plotting - only for display of legend
-    averages = [sum(column) / len(column) for column in zip(*result_closest_neigh)]
-    plt.plot(cities_size, averages, color='#FF0000')
-
-    for results in result_closest_neigh:
-        plt.plot(cities_size, results, color='#E39DE3')
-
-    # plotting average to be on top of other graphs
-    plt.plot(cities_size, averages, color='#FF0000')
-
-    # editing plot
-    plt.title('Nearest Neighbour Algorithm')
-    plt.xlabel('Number of cities')
-    plt.ylabel('Time (ms)')
-    plt.legend(['Average of results', 'Monte Carlo results'], loc='upper left')
-
-    # creating graphs for each algorithm - Minimum Spanning Tree
-    plt.subplot(2, 2, 4)
-
-    # counting average of results and plotting - only for display of legend
-    averages = [sum(column) / len(column) for column in zip(*result_min_span_tree)]
-    plt.plot(cities_size, averages, color='#FF0000')
-
-    for results in result_min_span_tree:
-        plt.plot(cities_size, results, color='#E39DE3')
-
-    # plotting average to be on top of other graphs
-    plt.plot(cities_size, averages, color='#FF0000')
-
-    # editing plot
-    plt.title('Minimum Spanning Tree Algorithm')
-    plt.xlabel('Number of cities')
-    plt.ylabel('Time (ms)')
-    plt.legend(['Average of results', 'Monte Carlo results'], loc='upper left')
-
-    # showing graphs
-    plt.show()
+    # plt.subplot(2, 2, 1)
+    #
+    # # counting average of results and plotting - only for display of legend
+    # averages = [sum(column) / len(column) for column in zip(*result_naive)]
+    # plt.plot(cities_size, averages, color='#FF0000')
+    #
+    # for results in result_naive:
+    #     plt.plot(cities_size, results, color='#E39DE3')
+    #
+    # # plotting average to be on top of other graphs
+    # plt.plot(cities_size, averages, color='#FF0000')
+    #
+    # # editing plot
+    # plt.title('Naive Solution')
+    # plt.xlabel('Number of cities')
+    # plt.ylabel('Time (s)')
+    # plt.legend(['Average of results', 'Monte Carlo results'], loc='upper left')
+    #
+    # # creating graphs for each algorithm - Held-Karp
+    # plt.subplot(2, 2, 2)
+    #
+    # # counting average of results and plotting - only for display of legend
+    # averages = [sum(column) / len(column) for column in zip(*result_held_karp)]
+    # plt.plot(cities_size, averages, color='#FF0000')
+    #
+    # for results in result_held_karp:
+    #     plt.plot(cities_size, results, color='#E39DE3')
+    #
+    # # plotting average to be on top of other graphs
+    # plt.plot(cities_size, averages, color='#FF0000')
+    #
+    # # editing plot
+    # plt.title('Held-Karp Algorithm')
+    # plt.xlabel('Number of cities')
+    # plt.ylabel('Time (s)')
+    # plt.legend(['Average of results', 'Monte Carlo results'], loc='upper left')
+    #
+    # # creating graphs for each algorithm - Closest Neighbour
+    # plt.subplot(2, 2, 3)
+    #
+    # # counting average of results and plotting - only for display of legend
+    # averages = [sum(column) / len(column) for column in zip(*result_closest_neigh)]
+    # plt.plot(cities_size, averages, color='#FF0000')
+    #
+    # for results in result_closest_neigh:
+    #     plt.plot(cities_size, results, color='#E39DE3')
+    #
+    # # plotting average to be on top of other graphs
+    # plt.plot(cities_size, averages, color='#FF0000')
+    #
+    # # editing plot
+    # plt.title('Nearest Neighbour Algorithm')
+    # plt.xlabel('Number of cities')
+    # plt.ylabel('Time (ms)')
+    # plt.legend(['Average of results', 'Monte Carlo results'], loc='upper left')
+    #
+    # # creating graphs for each algorithm - Minimum Spanning Tree
+    # plt.subplot(2, 2, 4)
+    #
+    # # counting average of results and plotting - only for display of legend
+    # averages = [sum(column) / len(column) for column in zip(*result_min_span_tree)]
+    # plt.plot(cities_size, averages, color='#FF0000')
+    #
+    # for results in result_min_span_tree:
+    #     plt.plot(cities_size, results, color='#E39DE3')
+    #
+    # # plotting average to be on top of other graphs
+    # plt.plot(cities_size, averages, color='#FF0000')
+    #
+    # # editing plot
+    # plt.title('Minimum Spanning Tree Algorithm')
+    # plt.xlabel('Number of cities')
+    # plt.ylabel('Time (ms)')
+    # plt.legend(['Average of results', 'Monte Carlo results'], loc='upper left')
+    #
+    # # showing graphs
+    # # plt.show()
